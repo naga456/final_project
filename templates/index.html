@@ -2,61 +2,105 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mission to Mars</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  
-  /<!--Solution copied from web-->
-  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Damajs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!--Solution copied from web-->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--Plots-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!--word cloud-->
+    <script src="https://www.koolchart.com/demo/LicenseKey/codepen/KoolChartLicense.js"></script>
+    <script src="https://www.koolchart.com/demo/KoolChart/JS/KoolChart.js"></script>
+    <link rel="stylesheet" href="https://www.koolchart.com/demo/KoolChart/Assets/Css/KoolChart.css"/>
 </head>
 
-<body>
-  <div class="container-fluid">
-    <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrate New Data</a></p>
-    </div> 
-  </div>
+<body class="bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">Damajs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="/about" class="nav-link" >About</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
   
 
-  <!-- text box -->
-  <form>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Example textarea</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <div class="jumbotron jumbotron-fluid text-center bg-primary text-white">
+    <div class="container">
+        <h1 class="display-4">Data Analytics and Machine Assisted Job Search.  </h1>
+        <p class="lead">This is a job recommendation application powered by machine learning and data analytics.</p>
+
+    </div>
     </div>
 
-    <button type="submit"> <a class="btn btn-primary" href="/submit">Submit </a>  </button> 
-  </form>
-  
-  <div class="container">
+    <div class="container">
+    <div class="col-sm-6 offset-sm-3 text-center">
+    <form method="POST">
+        <div class="form-group bg-primary text-white">
+        <label for="exampleFormControlTextarea1">Add your resume to the text area and click 'Submit'.</label>
+        <textarea name="text" class="form-control bg-primary text-white " id="exampleFormControlTextarea1" rows="6" cols="50" placeholder="Copy your resume in here and click 'Try me' or select a sample resume in the dropdown." required ></textarea>
+        <button type="submit" class="btn btn-default btn-primary btn-lg">Submit</button>
 
-    <div class="jumbotron text-center">
-      <!-- Render our data -->
-      <h1>{{ text }}</h1>
+        </div>
+    </form>
+    </div>
     </div>
 
-  </div>
+    <div class="container">
+    <div class="col-sm-6 offset-sm-3 text-center">
+    <div class="form-group text-light bg-primary">
+        <label for="exampleFormControlSelect2">Or select an example.</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2" >
+        <option class="bg-primary text-white">I like to program and have 3 years of coding experience.  I have experience with Python, Javascript and HTML</option>
+        <option class="bg-primary text-white">I've worked as a customer service representative and call centre representative.  I can help customers with their problems </option>
+        <option class="bg-primary text-white">I've been on marketing and sales teams.  Visiting clients and consumers to sell product and items.  Customers are happy with the service that I provide them.</option>
+        <option class="bg-primary text-white">Mechanical engineer with 6 years of experience in lightweight materials innovation, production and maintenance.  Degree in Mechanical Engineering for UCSD.  Looking to leverage my SolidWorks expertise, leadership and materials development competency.  Tinkercad, AutoCAD, MATLAB, ADDA Certification, SeeedSecure.  Worked with team to ideate, create, maintain and update lightweigh materials</option>
+        <option class="bg-primary text-white">Recruiting candiate telemarkarkting telesale positions Marketing, market, markets, advertising, agency operations, print, production, presentable appearance communication</option>
+        <option class="bg-primary text-white">None - Reset</option>
+        </select>
+    </div>
+    </div>
+    </div>
 
-  <!--Post to flask-->
-  <form method="POST">
-    <input name="text">
-    <input type="submit">
-</form>
+    <div class="jumbotron jumbotron-fluid text-center bg-primary text-white">
+    <div class="container">
+    <h2>Predicted category: {{ text }}</h2>
+    </div>
+    </div>
+    <script>
+        var mytextbox = document.getElementById('exampleFormControlTextarea1');
+        var mydropdown = document.getElementById('exampleFormControlSelect2');
 
+        mydropdown.onchange = function(){
+        mytextbox.value = "";
+        mytextbox.value = mytextbox.value  + this.value;
+}
+    </script>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
+  <script>
+    var chartdata = ({{ chartdata|tojson}});   
+  </script>
 
+    <!--Plots-->
+    <div id="plot"></div>
+    <script src="./static/js/plots.js"></script>
+
+    <!--word cloud-->
+    <div id="chartHolder" style="height:500px; width:100%;"></div>
 </body>
-
-
 
 </html>
