@@ -23,3 +23,12 @@ select > option:hover{
     color: inherit;
     background-color: #eee;
 }
+
+.li{
+    padding-left:5em
+}
+
+.bg-primary{
+    margin-left: auto;
+    margin-right: auto;
+}

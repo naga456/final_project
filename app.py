@@ -51,5 +51,9 @@ def my_form_post():
 def about():
     return render_template('about.html')
 
+@app.route("/technology")
+def technology():
+    return render_template('technology.html')
+
 if __name__ == "__main__":
     app.run(debug=True)

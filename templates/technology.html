@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Damajs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!--Solution copied from web-->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+
+<body class="bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Damajs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="/technology" class="nav-link" >Technology</a>
+              </li>
+            <li class="nav-item">
+                <a href="http://localhost:8888/notebooks/data_cleanup.ipynb" class="nav-link" >Jupyter Notebook</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+<p>
+
+  <h1>About the Technology:</h1>
+  <br><ul><h3>Website:</ul></h3>
+  <ul>
+  <br>  <li >HTML</li>
+  <br>  <li>CSS</li>
+  <br>  <li>JavaScript</li>
+  <br>  <li>Bootstrap</li>
+  <br>  <li>koolchart</li>
+  </ul>
+  <br><ul><h3>Server:</ul></h3>
+  <ul>
+  <br>  <li>Flask</li>
+  <br>  <li>Templates</li>
+  <br>  <li>SQLalchemy</li>
+  </ul>
+  <br><ul><h3>Model:</ul></h3>
+  <ul>
+  <br>  <li>pandas</li>
+  <br>  <li>numpy</li>
+  <br>  <li>TfidfVectorizer</li>
+  <br>  <li>sklearn</li>
+  <br>  <li>remove stop words</li>
+  <br>  <li>remove html tags</li>
+  <br>  <li>re</li>
+  <br>  <li>sklearn.naive_bayes</li>
+  <br>  <li>sklearn.pipeline</li>
+  <br>  <li>Metadata:</li>
+  </ul>
+  <br>
+  <p>  <h3>Data source:</h3>  https://www.kaggle.com/WUZZUF/wuzzuf-job-posts#Wuzzuf_Job_Posts_Sample.csv </p>
+  <br> <p>20,000 rows of data</p>
+  <table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Job Category</th>
+        <th scope="col"># Records</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>IT/Software Development</td>
+        <td>5708</td>
+        <tr>
+          <td>Engineering</td>
+          <td>3349</td>
+        </tr>
+        <tr>
+          <td>Customer Service/Support </td>
+          <td>2862</td>
+        </tr>
+        <tr>
+          <td>Marketing</td>
+          <td>2542</td>
+        </tr>
+        <tr>
+          <td>Sales/Retail/Business Development</td>
+          <td>1992</td>
+        </tr>
+    </tbody>
+  </table> 
+
+    
+
+    <br><ul><h3> Database: </ul></h3>
+    <ul>
+    <li>PGAdmin</li>
+    <li>postgresSQL</li>
+    </ul>    
+</p>
+
+</body>
+
+</html>

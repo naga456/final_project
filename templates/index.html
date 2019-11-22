@@ -19,7 +19,7 @@
 </head>
 
 <body class="bg-primary">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">Damajs</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -34,19 +34,19 @@
               <a href="/about" class="nav-link" >About</a>
             </li>
             <li class="nav-item">
-                <a href="http://localhost:8888/notebooks/data_cleanup.ipynb" class="nav-link" >Jupyter Note</a>
+              <a href="/technology" class="nav-link" >Technology</a>
+            </li>
+            <li class="nav-item">
+                <a href="http://localhost:8888/notebooks/data_cleanup.ipynb" class="nav-link" >Jupyter Notebook</a>
             </li>
           </ul>
         </div>
     </nav>
 
-  
-
     <div class="jumbotron jumbotron-fluid text-center bg-primary text-white">
     <div class="container">
         <h1 class="display-4">Data Analytics and Machine Assisted Job Search.  </h1>
         <p class="lead">This is a job recommendation application powered by machine learning and data analytics.</p>
-
     </div>
     </div>
 
@@ -57,7 +57,6 @@
         <label for="exampleFormControlTextarea1">Add your resume to the text area and click 'Submit'.</label>
         <textarea name="text" class="form-control bg-primary text-white " id="exampleFormControlTextarea1" rows="6" cols="50" placeholder="Copy your resume in here and click 'Try me' or select a sample resume in the dropdown." required ></textarea>
         <button type="submit" class="btn btn-default btn-primary btn-lg">Submit</button>
-
         </div>
     </form>
     </div>
@@ -87,7 +86,6 @@
     <script>
         var mytextbox = document.getElementById('exampleFormControlTextarea1');
         var mydropdown = document.getElementById('exampleFormControlSelect2');
-
         mydropdown.onchange = function(){
         mytextbox.value = "";
         mytextbox.value = mytextbox.value  + this.value;
