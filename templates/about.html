@@ -38,60 +38,82 @@
         </div>
     </nav>
 
-  <p><h1>About my project:</h1>
-    <br>
-    I really wanted to challenge myself and take on integration problems head on.
-    <br>
-    I thought the job searching process was very frustrating and I wanted to see if there was a better way of doing it
-    using what we learned about data analytics and machine learning.  
-    <br> This application takes a resume or description about your work experience and compares it using concepts similar to sentiment analysis to classify job categories.  
-    <br>Job descriptions were pulled for 5 different job categories and used to train a naive bayes model.
-    <br>
-    <hr>
-    <h2>The visualization:</h2>  Takes in the text input and figure outs the important words.  Once we classify and predict your job category,
-    we compare your key words to job descriptions within your job category.  
-    <br>The size of the word is used to find its strength in relation
-    to using the word to predict using TFID weight.
-    <br>
-  </p>
     
-  <p><h1>Design:</h1></p>
-    <img src="/static/design.jpg">
 
-  <ol><h1>Usage:</h1></ol>
-  <ol>
-    <li> load the data into pandas to clean it up.</li>
-    <li> save the data to csv.</li>
-    <li> train the model against the clean data.</li>
-    <li> save the model to be used later.</li>
-    <li> build the database in PGadmin.</li>
-    <li> Load the clean data csv.</li>
-    <li> Load the webpage and the user can copy their resume into the text area.</li>
-    <li> The HTML passes the input to Flask.</li>
-    <li> Clean the input using the same method as the model.</li>
-    <li> Use the prediction to query the database for a list of job descriptions matching the prediction.</li>
-    <li> Apply TFIDF (term frequency-inverse document frequency) to the list to find the word weights. </li>
-    <li> Create a dictionary of words and weights.</li>
-    <li> Flask sends the prediciton and dictionary to the HTML page.</li>
-    <li> HTML page displays the prediciton.</li>
-    <li> HTML page sends the dictionary to JavaScript to make the visualization.</li>
-    <li> The visualization is displayed on the HTML.</li>
+    <h1><p class="text-center">About my project:</p></h1>
+    <br>
+    <div class="container">
+      <p class="text-center text-justify">
+      I really wanted to challenge myself and try to solve different integration problems.
+      I thought the job searching process was very frustrating and I wanted to see if there was a better way of doing it
+      using what we learned about data analytics and machine learning.  
+      This application takes a resume or description about your work experience and compares it using probability methods to classify job categories.  
+      Job descriptions were pulled for 5 different job categories and used to train a naive bayes model.
+      </p>
+    </div>
+
+  <div>  
+    <h1><p class="text-center">Design:</h1>
+    <img src="/static/design.jpg" class="rounded mx-auto d-block">
+  </div>
+
+  <div class="container">
+    <h1><p class="text-center">The Visualization:  </p></h1>
+    <p class="text-center">
+    The website takes in a text input and figure outs the important words.  Once we classify and predict your job category,
+    we compare your key words to job descriptions within your job category.  
+    The size of the word displayed is using the TFIC weight and is used to visualize the word's strength in relation
+    to its importance in prediction.
+    </p>
+  </div>
+
+  <div>  
+    <img src="/static/visualization.jpg" class="rounded mx-auto d-block">
+  </div>
+
+  <div>
+    <h1><p class="text-center"> Usage:</p></h1>
+    <ol class="list-group text-center">
+      <li> Load the data into pandas and clean it up.</li>
+      <li> Save the data to csv.</li>
+      <li> Train the model against the clean data.</li>
+      <li> Save the model to be used later.</li>
+      <li> Build the database in PGAdmin.</li>
+      <li> Load the clean data csv.</li>
+      <li> Load the webpage and the user can copy their resume into the text area.</li>
+      <li> The HTML passes the input to Flask.</li>
+      <li> Clean the input using the same data preprocessing used to train the model.</li>
+      <li> Use the prediction to query the database for a list of job descriptions matching the prediction.</li>
+      <li> Apply TFIDF (term frequency-inverse document frequency) to the list to find the word weights. </li>
+      <li> Create a dictionary of words and weights.</li>
+      <li> Flask sends the prediciton and dictionary to the HTML page.</li>
+      <li> HTML page displays the prediciton.</li>
+      <li> HTML page sends the dictionary to JavaScript to make the visualization.</li>
+      <li> The visualization is displayed on the HTML page.</li>
+    </ol>
+</div>
+
+<div>
+  <h1><p class="text-center">Interesting Findings:</p></h1>
+  <ol class="list-unstyled text-center">
+    <li> Without stopwords, the model had a score of 65%.
+    <br> With stopwords cleaning the model had a score of 67%</li>
+    <li> I'm not 100% sure the word weights are the weights to calculate the model. </li>
+    <li> Text analysis and classification didn't require a large dataset (as low as 2000 documents).</li>
   </ol>
+</div>
 
-  <ol><h1>Interesting Findings:</h1></ol>
-  <ol>
-    <li>  Without stopwords, the model had a score of 65%.
-        <br>With stopwords cleaning the model had a score of 67%</li>
-    <li>  I'm not 100% sure the word weights are conveying the weights the model is using. </li>
-    <li>  Text analysis and classification didn't require a large dataset.</li>
-  </ol>
-
-  <ul style="list-style-type:circle;"> <h1>Improvements:</h1> </ul>
-  <li>Add visualization that plots job descriptions in space, add the input in that space and grab the top 10 job descriptions by Euclidian distance of vectorized feature space.</li>
-  <li>Add API and webscraping for LinkedIn and Indeed to grab real time job descriptions. </li>
-  <li>Apply additional model tuning such as stemming, ngrams, add additional categories. </li>
-  <li>Add additional datasets</li>
-  <li>Error handling.</li>
+</div>
+  <h1><p class="text-center">Improvements:</p></h1>
+    <ul class="list-unstyled text-center">
+    <li>Add dot plot tovisualization of job descriptions and rank the top 10 job descriptions by Euclidian distance of vectorized feature space.</li>
+    <li>Add API and webscraping for LinkedIn and Indeed to grab real time job descriptions. </li>
+    <li>Apply additional model tuning such as stemming and ngrams to improve model accuracy. </li>
+    <li>Add additional job categories.</li>
+    <li>Add additional datasets to improve model accuracy.</li>
+    <li>Error handling on data because unrecognized encoding was crashing the query.</li>
+    </ul> 
+</div>
 
 </body>
 
